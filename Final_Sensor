@@ -68,17 +68,17 @@ void loop() {
     analogWrite(blue, 255);
   }
 
-  if (distance > 120 & distance < 600) { //blue
+  if (distance > 120 & distance < 300) { //blue
     analogWrite(green, 0);
     analogWrite(red, 0);
     analogWrite(blue, 255);
   }
 
-  if (distance <= 600) {
+  if (distance <= 300) {
     lcd.setCursor(0, 1);
     lcd.print(distance);
   }
-  if (distance > 600) {
+  if (distance > 300) {
     lcd.setCursor(0, 0);
     lcd.print("Way to far");
     lcd.setCursor(0, 2);
