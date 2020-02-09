@@ -6,7 +6,10 @@ LiquidCrystal lcd(rs,en,d4,d5,d6,d7);
 
 //3 is green
 //6 is blue
-//11 is red
+//5 is red
+const int green = 3;
+const int blue = 6;
+const in red = 5;
 const int trigPin = 4;
 const int echoPin = 2;
 // defines variables
@@ -45,30 +48,30 @@ void loop() {
 // Prints the distance on the Serial Monitor
     
   if(distance>=70&distance<=100){     //yellow
-    analogWrite(3,100);
-    analogWrite(6,0);
-    analogWrite(5,255);
+    analogWrite(green,100);
+    analogWrite(red,0);
+    analogWrite(blue,255);
   }
   if(50<distance&distance<70){ //red
-    analogWrite(3,0);
-    analogWrite(5,255);
-    analogWrite(6,0);
+    analogWrite(green,0);
+    analogWrite(red,255);
+    analogWrite(blue,0);
   }
   if(distance>100&distance<130){     //green
-    analogWrite(3,255);
-    analogWrite(5,0);
-    analogWrite(6,0);
+    analogWrite(green,255);
+    analogWrite(red,0);
+    analogWrite(blue,0);
   }
   if(distance<50){     //purple
-    analogWrite(3,0);
-    analogWrite(5,255);
-    analogWrite(6,255);
+    analogWrite(green,0);
+    analogWrite(red,255);
+    analogWrite(blue,255);
   }
 
   if(distance>130&distance<600){   //blue
-    analogWrite(3,0);
-    analogWrite(5,0);
-    analogWrite(6,255);
+    analogWrite(green,0);
+    analogWrite(red,0);
+    analogWrite(blue,255);
   }
  
   if(distance<=600){
@@ -80,9 +83,9 @@ void loop() {
     lcd.print("Way to far");
     lcd.setCursor(0,2);
     lcd.print("Cannot Compute");
-    analogWrite(3,255);
-    analogWrite(5,255);
-    analogWrite(6,255);
+    analogWrite(green,255);
+    analogWrite(red,255);
+    analogWrite(blue,255);
     
 }
   delay(100);
